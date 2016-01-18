@@ -1,1 +1,3 @@
-Work in progress... Stay tuned!
+Publish and subscribe to data sets without rewriting queries on client with angular2-meteor. Support reactive join on server and client
+
+Work in progress...
