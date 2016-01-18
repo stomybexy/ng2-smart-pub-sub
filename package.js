@@ -2,7 +2,7 @@ Package.describe({
   name: 'jonatan:ng2-smart-pub-sub',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Publish and subscribe to data sets without rewriting queries on client with angular2-meteor. Support reactive join on server and client',
   // URL to the Git repository containing the source code for this package.
   git: '',
   // By default, Meteor will default to using README.md for documentation.
