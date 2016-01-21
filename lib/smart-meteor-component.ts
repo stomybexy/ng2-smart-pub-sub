@@ -87,7 +87,7 @@ export class SmartMeteorComponent extends MeteorComponent {
 
 
     }
-    smartPageSubscribe(name: string | Object, options: any = {}, ...rest) {
+    smartPageSubscribe(name: string | Object, options: Object = {}, ...rest) {
         // console.log(options)
         this.autorun(() => {
             // options = options || {};

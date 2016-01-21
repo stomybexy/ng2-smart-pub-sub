@@ -18,7 +18,7 @@ declare module 'ng2-smart-sub' {
 
         smartSubscribe(name: string | Object, ...rest): Meteor.SubscriptionHandle;
 
-        smartPageSubscribe(name: string | Object, options, ...rest): any;
+        smartPageSubscribe(name: string | Object, options?: Object , ...rest): any;
 
         attachChild(obj, name, parentName, ...args): any;
 
