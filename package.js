@@ -29,6 +29,7 @@ Package.onUse(function (api) {
 
     // api.use('barbatus:angular2@0.7.5');
     api.use('urigo:angular2-meteor@0.3.7');
+    api.use('dburles:mongo-collection-instances@0.3.5');
 
 
     api.addFiles('lib/smart-publish.ts');
