@@ -87,10 +87,10 @@ export class SmartMeteorComponent extends MeteorComponent {
 
 
     }
-    smartPageSubscribe(name: string | Object, options, ...rest) {
+    smartPageSubscribe(name: string | Object, options: any = {}, ...rest) {
         // console.log(options)
         this.autorun(() => {
-            options = options || {};
+            // options = options || {};
             options.limit = this[options.pageSizeProp || 'pageSize'];
             options.skip = (this[options.curPageProp || 'curPage'].get() - 1) * this[options.pageSizeProp || 'pageSize'];
             options.sort = this[options.sortProp || 'sort'].get();
