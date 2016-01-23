@@ -64,8 +64,7 @@ export function smartPublishComposite(name: string, pub: any) {
 
 function mapToCursor(pub: Object, ...subArgs) {
     var self = this;
-    if (Meteor.isServer && _.isFunction(this.added))
-        console.log(this.ready)
+
     return {
         find: function(...args) {
 

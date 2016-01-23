@@ -4,9 +4,6 @@ import {MeteorComponent} from 'angular2-meteor';
 
 
 export class SmartMeteorComponent extends MeteorComponent {
-
-
-
     constructor() {
         super();
     }
@@ -22,10 +19,8 @@ export class SmartMeteorComponent extends MeteorComponent {
 
         pub.varName = pub.varName || pub.name;
         return this.subscribe.call(this, pub.name, ...rest, () => {
-            var self = this;
-
-
-            this.call.call(self, pub.name, ...rest, (err, opt) => {
+            var self = this;            
+            this.call( pub.name, ...rest, (err, opt) => {
 
                 if (!opt || !opt.collName) {
                     return;
@@ -81,8 +76,6 @@ export class SmartMeteorComponent extends MeteorComponent {
                 }
             });
 
-
-
         }, true);
 
 
@@ -90,7 +83,7 @@ export class SmartMeteorComponent extends MeteorComponent {
     smartPageSubscribe(name: string | Object, options: Object = {}, ...rest) {
         // console.log(options)
         this.autorun(() => {
-            // options = options || {};
+            options = options || {};
             options.limit = this[options.pageSizeProp || 'pageSize'];
             options.skip = (this[options.curPageProp || 'curPage'].get() - 1) * this[options.pageSizeProp || 'pageSize'];
             options.sort = this[options.sortProp || 'sort'].get();
