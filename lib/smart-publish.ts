@@ -77,9 +77,9 @@ function mapToCursor(pub: Object, ...subArgs) {
             });
             return cursor;
         },
-        children: _.map(pub.children, (child) => {
+        children: _.map(pub.children, function(child) {
 
-            return mapToCursor(child, ...subArgs);
+            return mapToCursor.call(self, child, ...subArgs);
         })
     }
 }
