@@ -97,7 +97,7 @@ export class SmartMeteorComponent extends MeteorComponent {
     attachChild(obj, name, parentName, ...args) {
         parentName = parentName ? parentName + '.' : '';
         name = parentName + name;
-        console.log('attaching child', name);
+        // console.log('attaching child', name);
         var opt = Meteor.apply(name, args, { returnStubValue: true });
         // console.log('Stub value', res)
         // this.call.call(this, name, ...args, (err, opt) => {
@@ -122,7 +122,7 @@ export class SmartMeteorComponent extends MeteorComponent {
                         return doc;
                     }
                 })
-                console.log('after attach', obj);
+                // console.log('after attach', obj);
             })
             // }, 10000);
 
