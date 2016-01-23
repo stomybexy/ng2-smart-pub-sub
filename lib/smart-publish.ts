@@ -38,7 +38,9 @@ export function smartPublish(name: string, pubFunc: Function) {
 export function smartPublishComposite(name: string, pub: any) {
     if (Meteor.isServer) {
         if (_.isObject(pub)) {
-            Meteor.publishComposite(name, (...subArgs) => { console.log(...subArgs); return mapToCursor(pub, ...subArgs) });
+            Meteor.publishComposite(name, function(...subArgs) {
+                return mapToCursor.call(this, pub, ...subArgs);
+            });
         } else {
 
             throw new Meteor.Error('argument pub must be an object or a function');
@@ -61,10 +63,13 @@ export function smartPublishComposite(name: string, pub: any) {
 }
 
 function mapToCursor(pub: Object, ...subArgs) {
+    var self = this;
+    if (Meteor.isServer && _.isFunction(this.added))
+        console.log(this.ready)
     return {
-        find: (...args) => {
+        find: function(...args) {
 
-            var opt = pub.find(...args, ...subArgs);
+            var opt = pub.find.call(self, ...args, ...subArgs);
             var cursor = opt.coll.find(opt.selector || {}, {
                 sort: opt.sort,
                 skip: opt.skip,
