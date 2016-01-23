@@ -38,15 +38,11 @@ export function smartPublish(name: string, pubFunc: Function) {
 export function smartPublishComposite(name: string, pub: any) {
     if (Meteor.isServer) {
         if (_.isObject(pub)) {
-            Meteor.publishComposite(name, mapToCursor(pub));
+            Meteor.publishComposite(name, (...subArgs) => { console.log(...subArgs); return mapToCursor(pub, ...subArgs) });
         } else {
-            if (_.isFunction(pub)) {
-                Meteor.publishComposite(name, (...args) => {
-                    return mapToCursor(pub(...args));
-                })
-            } else {
-                throw new Meteor.Error('argument pub must be an object or a function');
-            }
+
+            throw new Meteor.Error('argument pub must be an object or a function');
+
         }
     }
 
@@ -64,11 +60,11 @@ export function smartPublishComposite(name: string, pub: any) {
     Meteor.methods(meth);
 }
 
-function mapToCursor(pub: Object) {
+function mapToCursor(pub: Object, ...subArgs) {
     return {
         find: (...args) => {
 
-            var opt = pub.find(...args);
+            var opt = pub.find(...args, ...subArgs);
             var cursor = opt.coll.find(opt.selector || {}, {
                 sort: opt.sort,
                 skip: opt.skip,
@@ -78,7 +74,8 @@ function mapToCursor(pub: Object) {
             return cursor;
         },
         children: _.map(pub.children, (child) => {
-            return mapToCursor(child);
+
+            return mapToCursor(child, ...subArgs);
         })
     }
 }
