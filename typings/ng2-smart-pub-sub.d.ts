@@ -3,22 +3,24 @@
 
 
 declare module 'ng2-smart-pub' {
-    function smartPublishComposite(name: string, pub: any): any;
 
-    function smartPublish(name: string, pubFunc: Function): any;
+    interface SmartPubInterface {
+        smartPublishComposite(name: string, pub: Object): any;
+        smartPublish(name: string, pubFunc: Function): any;
+    }
+
+    export var SmartPub: SmartPubInterface;
 
 }
 
 declare module 'ng2-smart-sub' {
     export class SmartMeteorComponent extends MeteorComponent {
 
-
-
         constructor();
 
         smartSubscribe(name: string | Object, ...rest): Meteor.SubscriptionHandle;
 
-        smartPageSubscribe(name: string | Object, options?: Object , ...rest): any;
+        smartPageSubscribe(name: string | Object, options?: Object, ...rest): any;
 
         attachChild(obj, name, parentName, ...args): any;
 

@@ -1,5 +1,9 @@
 
-export function smartPublish(name: string, pubFunc: Function) {
+export var SmartPub = {
+    smartPublish: smartPublish,
+    smartPublishComposite: smartPublishComposite
+}
+function smartPublish(name: string, pubFunc: Function) {
     if (Meteor.isServer) {
         Meteor.publish(name, function() {
             var self = this;
@@ -34,8 +38,7 @@ export function smartPublish(name: string, pubFunc: Function) {
     Meteor.methods(meth);
 
 };
-
-export function smartPublishComposite(name: string, pub: any) {
+function smartPublishComposite(name: string, pub: any) {
     if (Meteor.isServer) {
         if (_.isObject(pub)) {
             Meteor.publishComposite(name, function(...subArgs) {
