@@ -31,7 +31,6 @@ function smartPublish(name: string, pubFunc: Function) {
         // delete opt.limit;
         opt.collName = opt.coll._name;
         delete opt.coll;
-        opt.test = (function() { return 10 }).toString();
         return opt;
     }
 
