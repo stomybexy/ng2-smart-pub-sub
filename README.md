@@ -39,7 +39,7 @@ for example on `pubs/parties`
 
 ### Subscription
 
-and then on client. The package defines a module `ng2-smart-sub` that exports a class `SmartMeteorComponent`. Extends that class and use `this.smartSubscribe`
+On client, the package defines a module `ng2-smart-sub` that exports a class `SmartMeteorComponent`. Extends that class and use `this.smartSubscribe`. This class extends `MeteorComponent` of angular2-meteor, so all the features of `MeteorComponent` are available in `SmartMeteorComponent`
 
 ````ts
     ....
