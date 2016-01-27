@@ -2,7 +2,7 @@
 
 Not yet published on atmosphere...
 
-Publish and subscribe to data sets without rewriting queries on client with angular2-meteor. Support reactive joins on server and client.
+Publish and subscribe to data sets without rewriting queries on client with [angular2-meteor](https://atmospherejs.com/urigo/angular2-meteor). Support reactive joins on server and client.
 Don't Repeat yourself.
 
 Meteor publish and subscribe require rewriting queries on client. This package do it for you in angular2-meteor and you just have to publish and then subscribe. 
@@ -108,4 +108,4 @@ For example to publish parties with their owners reactively:
     }]
 });
 ```
-You subscribe to this publication as before and `parties` property of your `Parties-List` component will be a cursor that hold a collection of objects, each containing a creator property which is a user object from the collection `Meteor.users`, all of this reactively.
+You subscribe to this publication as before and `parties` property of your `Parties-List` component will be a cursor that holds a collection of Parties, each containing a creator property which is a user object from the collection `Meteor.users`, all of this,  reactively.
