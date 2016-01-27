@@ -21,7 +21,7 @@ This package defines a module `ng2-smart-pub` that exports an object `SmartPub` 
 
 You need to load files containing publications on client and server and instead of returning cursor from publish function, you return an object defining your cursor.
 
-for example on `pubs/parties`
+for example on `pubs/parties.ts`
 ```ts
   import {SmartPub} from 'ng2-smart-pub';
   import {Parties} from 'collections/parties';
