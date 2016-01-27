@@ -51,7 +51,7 @@ and then on client. The package defines a module `ng2-smart-sub` that exports a 
     @View({
       templateUrl: '/client/parties-list/parties-list.html'
     })
-    class PartiesList {
+    class PartiesList extends SmartMeteorComponent{
         parties: Mongo.Cursor<Party>;
         constructor() {
           this.smartSubscribe('parties');
