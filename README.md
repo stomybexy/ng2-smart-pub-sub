@@ -108,4 +108,4 @@ For example to publish parties with their owners reactively:
     }]
 });
 ```
-You subscribe to this publication as before and `parties` property of your `Parties-List` component will be a cursor that holds a collection of Parties, each containing a creator property which is a user object from the collection `Meteor.users`, all of this,  reactively.
+You subscribe to this publication as before (`this.smartSubscribe('parties')`) and `parties` property of your `Parties-List` component will be a cursor that holds a collection of Parties, each containing a creator property which is a user object from the collection `Meteor.users`, all of this,  reactively.
