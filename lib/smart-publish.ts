@@ -15,8 +15,8 @@ function smartPublish(name: string, pubFunc: Function) {
                 sort: opt.sort,
                 skip: opt.skip,
                 limit: opt.limit,
-                fields: opt.fields,
-                transform: opt.transform
+                fields: opt.fields
+            // , transform: opt.transform
             });
 
             return cursor;
