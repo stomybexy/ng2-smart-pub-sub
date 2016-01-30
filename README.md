@@ -1,6 +1,5 @@
 # Ng2-Smart-Pub-Sub
 
-Documentation in progress...
 
 Publish and subscribe to data sets without rewriting queries on client with [angular2-meteor](https://atmospherejs.com/urigo/angular2-meteor). Support reactive joins on server and client.
 Don't Repeat yourself.
