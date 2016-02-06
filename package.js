@@ -25,7 +25,7 @@ Package.onUse(function (api) {
     api.versionsFrom('1.2.0.1');
     api.use('ecmascript@0.1.4');
     api.use('underscore@1.0.4');
-    api.imply('jonatan:smart-pub')
+    api.imply('jonatan:smart-pub@0.0.2')
     api.use('reywood:publish-composite@1.4.2', 'server');
 
     // api.use('barbatus:angular2@0.7.5');
