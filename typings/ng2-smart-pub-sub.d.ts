@@ -7,6 +7,7 @@ declare module 'ng2-smart-pub' {
     interface SmartPubInterface {
         smartPublishComposite(name: string, pub: Object): any;
         smartPublish(name: string, pubFunc: Function): any;
+        isPublish(this_arg: any): boolean;
     }
 
     export var SmartPub: SmartPubInterface;

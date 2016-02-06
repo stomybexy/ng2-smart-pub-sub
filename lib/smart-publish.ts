@@ -1,9 +1,11 @@
 
 export var SmartPub = {
     smartPublish: smartPublish,
-    smartPublishComposite: smartPublishComposite
+    smartPublishComposite: smartPublishComposite,
+    isPublish: isPublish
 }
 function smartPublish(name: string, pubFunc: Function) {
+    console.warn('DEPRECATED: Use SmartPub from jonatan:smart-pub package instead');
     if (Meteor.isServer) {
         Meteor.publish(name, function() {
             var self = this;
@@ -38,6 +40,8 @@ function smartPublish(name: string, pubFunc: Function) {
 
 };
 function smartPublishComposite(name: string, pub: any) {
+    console.warn('DEPRECATED: Use SmartPub from jonatan:smart-pub package instead');
+    
     if (Meteor.isServer) {
         if (_.isObject(pub)) {
             Meteor.publishComposite(name, function(...subArgs) {
@@ -103,4 +107,16 @@ function createCompositeMethod(pub: Object, parentName, meth) {
     _.each(pub.children, (child) => {
         createCompositeMethod(child, name, meth);
     });
+}
+
+function isPublish(this_arg) {
+    console.warn('DEPRECATED: Use SmartPub from jonatan:smart-pub package instead');
+    
+    return Meteor.isServer && isPublishHandler(this_arg);
+}
+function isPublishHandler(this_arg) {
+    return this_arg && _.isFunction(this_arg.added) &&
+        _.isFunction(this_arg.changed) &&
+        _.isFunction(this_arg.removed) &&
+        _.isFunction(this_arg.ready);
 }

@@ -1,6 +1,6 @@
 Package.describe({
     name: 'jonatan:ng2-smart-pub-sub',
-    version: '0.0.5',
+    version: '0.0.6',
     // Brief, one-line summary of the package.
     summary: 'Publish and subscribe to data sets without rewriting queries on client with angular2-meteor.',
     // URL to the Git repository containing the source code for this package.
@@ -25,6 +25,7 @@ Package.onUse(function (api) {
     api.versionsFrom('1.2.0.1');
     api.use('ecmascript@0.1.4');
     api.use('underscore@1.0.4');
+    api.imply('jonatan:smart-pub')
     api.use('reywood:publish-composite@1.4.2', 'server');
 
     // api.use('barbatus:angular2@0.7.5');
