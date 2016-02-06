@@ -1,0 +1,9 @@
+<div *ngIf="phoneStage">
+  <input type="text" placeholder="Phone Number" [(ngModel)]="phoneNumber">
+  <button (click)="requestVerification">Send</button>
+</div>
+
+<div *ngIf="!phoneStage">
+  <input type="text" placeholder="Enter Code" [(ngModel)]="verCode">
+  <button (click)="verifyPhone">Verify</button>
+</div>
